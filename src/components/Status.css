@@ -1,0 +1,14 @@
+.status-container {
+    text-align: center;
+}
+
+.status-text, .status-button {
+    margin: 32px 0;
+}
+
+.status-button {
+    color: white;
+    background-color: black;
+    padding: 8px;
+    cursor: pointer;
+}

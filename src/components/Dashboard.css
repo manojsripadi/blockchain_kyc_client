@@ -1,0 +1,45 @@
+.dashboard-container {
+    width: 70%;
+    margin: 0 auto;
+     /* height: 500px; */
+    border: 1px solid; 
+}
+
+.container-small {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.profile-info {
+    flex: 0 0 50%;
+    max-width: 50%;
+    cursor: pointer;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.status-info {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: center;
+    cursor: pointer;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.is-active {
+    background-color: #c2e5d3;
+}
+
+.not-active {
+    background-color: #d3d3d3;
+}

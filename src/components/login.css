@@ -1,0 +1,35 @@
+.loginForm {
+    background-color: white;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 0 0.188rem 1.550rem rgb(156, 156, 156);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 5rem;
+}
+
+.loginForm__userName {
+    margin: 32px 0;
+    padding: 8px;
+}
+
+.loginForm__password {
+    margin-bottom: 32px;
+    padding: 8px;
+}
+
+.loginForm__button {
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.loginForm__heading {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+}

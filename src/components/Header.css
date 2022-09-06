@@ -1,0 +1,35 @@
+.nav-wrapper {
+    height: 64px;
+    width: 70%;
+    line-height: 64px;
+    background-color: #3f51b5;
+    color: white;
+    margin: 0 auto;
+}
+
+.nav-wrapper a {
+    color: white;
+    text-decoration: none;
+}
+
+.list-items {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    list-style: none;
+}
+
+.list-items li {
+    margin-right: 16px;
+}
+
+.list-items li:hover {
+    cursor: pointer;
+}
+
+.bank-name {
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 16px;
+}
+
