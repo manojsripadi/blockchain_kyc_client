@@ -1,0 +1,14 @@
+node_modules
+**/node_modules
+.storybook
+pipelines
+pa11y
+docs
+builds
+.editorconfig
+.gitlab-ci.yml
+.README.md
+Dockerfile*
+Jenkinsfile*
+README.md
+.local.env
