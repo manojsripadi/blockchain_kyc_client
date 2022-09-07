@@ -35,14 +35,14 @@ class Admin extends Component {
 
     approveHandler(e, index, kycId) {
         if (kycId) {
-            this.props.rejectDocuments(this.userDetails[index], 'ACCEPTED');
+            this.props.rejectDocuments(this.userDetails[index], 'Accepted');
         } else {
             this.props.approveDocuments(this.userDetails[index])
         }
     }
 
     rejectHandler(e, index) {
-        this.props.rejectDocuments(this.userDetails[index], 'REJECTED');
+        this.props.rejectDocuments(this.userDetails[index], 'Rejected');
     }
 
     renderContent(userList = []) {

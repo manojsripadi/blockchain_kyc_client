@@ -1,10 +1,10 @@
 import { LOGIN_USER, LOGOUT_USER, LOG_ERROR, UPLOAD_DOCUMENTS } from '../actions/types';
 
 const initialState = {
-    loggedIn: true,
+    loggedIn: false,
     isAdmin: false,
-    name: 'kiran',
-    accountNumber: '1213323',
+    name: '',
+    accountNumber: '',
     aadharNumber: '',
     jwtToken: '',
     profileImage: '',
@@ -17,7 +17,7 @@ export default function(state = initialState, action) {
         case LOGIN_USER:
             return {...state, ...action.payload, loggedIn: true};
         case LOGOUT_USER:
-            return {...state, loggedIn: false, isAdmin: false};
+            return initialState;
         case UPLOAD_DOCUMENTS:
             return {...state, documentsUploaded: true}
         case LOG_ERROR:
