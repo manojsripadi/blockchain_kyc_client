@@ -1,1 +1,49 @@
+pipeline {
+    agent any
+    environment {
+        PROJECT_ID = "neon-griffin-361701"
+        CLUSTER_NAME = "k8s-cluster1"
+        LOCATION = "us-central1-c"
+        CREDENTIALS_ID = 'neon-griffin-361701'
+    }
+     stages {
+        stage('Checkout') {
+            steps {
+                echo 'Hello from code checkout stage'
+                git branch: 'main', credentialsId: 'f0878ffa-d3f7-42ea-97cd-5e93d7f6a634', url: 'https://pscode.lioncloud.net/kirgopal0/blockchain_kyc_client.git'
+            }
+        }
+		stage('Build Docker Image') { 
+		    steps {
+                echo 'Hello from docker image stage'
+                script {
+		            myimage = docker.build("dhakshayanikc/react-deploy:${env.BUILD_ID}")
+                 }
+                }
+	   }
+	   
+    stage('push docker image') {
+      steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u dhakshayanikc -p ${dockerhubpwd}'
 
+}
+                   sh "docker push dhakshayanikc/react-deploy:${env.BUILD_ID}"
+                }
+            }
+    }
+        stage('Deploy to GKE') {
+            steps{
+                sh "sed -i 's/tagversion/${env.BUILD_ID}/g' deploymentservice.yaml"
+            step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deploymentservice.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true]) 
+        }
+        }
+  
+        stage('Release') {
+            steps {
+                echo 'Hello from release stage'
+            }
+        }
+    }
+}
