@@ -8,6 +8,7 @@ const initialState = {
     aadharNumber: '',
     jwtToken: '',
     profileImage: '',
+    organisation: '',
     hasError: false,
     documentsUploaded: false
 }
